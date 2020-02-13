@@ -82,3 +82,16 @@ table {
   border: 1px solid #ccc;
   border-top: none;
 }
+
+td.addClientCell {
+  color: black;
+  background-color: rgb(200, 200, 200);
+}
+
+
+td.addClientCell:hover {
+  transition-duration: 500ms;
+  color: white;
+  background-color: rgb(50, 50, 50);
+  cursor: pointer;
+}
