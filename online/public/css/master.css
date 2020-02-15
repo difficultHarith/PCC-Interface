@@ -96,3 +96,47 @@ td.addNewRowCell:hover {
   background-color: rgb(50, 50, 50);
   cursor: pointer;
 }
+
+input[type=text], select.title-select, select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  height: inherit;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.contact-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8px;
+}
+
+.name-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8px;
+}
+
+.address-holder {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr;
+    grid-gap: 8px;
+}

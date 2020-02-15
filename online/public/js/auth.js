@@ -1,5 +1,5 @@
-var userObj = {};
 document.getElementById("button-login").addEventListener("click", e => {
+	alert("Clicked")
 
 	var email = document.getElementById("inputEmail").value;
 	var password = document.getElementById("inputPassword").value;
@@ -19,23 +19,13 @@ document.getElementById("button-login").addEventListener("click", e => {
 	}
 });
 
-document.querySelector(".mdl-card__actions.mdl-card--border a").addEventListener("click", e => {
-	window.location.href = "../index.html"
-})
-
 firebase.auth().onAuthStateChanged(function(user) {
 
   if (user) {
 
     // User is signed in.
-    var userWelcomeCard = document.querySelector(".demo-card-square.mdl-card")
-    userWelcomeCard.style.visibility = "visible";
-
-    document.getElementsByClassName("mdl-card__title-text")[0].innerHTML = `Welcome, ${user.displayName}.`;
+	window.location.href="html/interface.html"
   } else {
     // No user is signed in.
   }
 });
-
-
-

@@ -41,9 +41,9 @@ function updateDBClients(snapshot) {
 	addClientCell.style.textAlign = "center";
 
 	addClientCell.addEventListener("click", e => {
-		alert("Clicked");
+		document.getElementById('newClientModalForm').style.display='block';
+		refreshClientFormID();
 	});
-
 }
 
 
@@ -85,14 +85,14 @@ function updateDBOrders(snapshot) {
 	});
 
 	var addOrderRow = dbOrders.insertRow(-1);
-	var addClientCell = addOrderRow.insertCell(0);
+	var addOrderCell = addOrderRow.insertCell(0);
 
-	addClientCell.className += "addNewRowCell";
-	addClientCell.colSpan = 7;
-	addClientCell.innerHTML = "Add New Order...";
-	addClientCell.style.textAlign = "center";
+	addOrderCell.className += "addNewRowCell";
+	addOrderCell.colSpan = 7;
+	addOrderCell.innerHTML = "Add New Order...";
+	addOrderCell.style.textAlign = "center";
 
-	addClientCell.addEventListener("click", e => {
+	addOrderCell.addEventListener("click", e => {
 
 	alert("Clicked");
 	});

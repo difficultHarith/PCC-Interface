@@ -9,7 +9,6 @@
   <body>
     <div class="w3-bar w3-black">
       <a href="#" class="w3-bar-item w3-button">Database</a>
-      <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Login</button>
       <a href="#" class="w3-bar-item w3-button">How I made this</a>
       <a href="#" class="w3-bar-item w3-button">Analytics</a>
       <a href="#" class="w3-bar-item w3-button">Contact Me</a>
@@ -57,61 +56,95 @@
           </table>
         </div>
       </div>
-      <div class="w3-container">
-        <div id="id01" class="w3-modal">
-          <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
 
-            <div class="w3-center"><br>
-              <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-              <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-            </div>
-
-            <form class="w3-container" action="/action_page.php">
-              <div class="w3-section">
-                <label><b>Username</b></label>
-                <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-                <label><b>Password</b></label>
-                <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-                <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-                <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-              </div>
-            </form>
-
-            <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-              <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-              <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-            </div>
-
-          </div>
-        </div>
     </div>
+    <div id="newClientModalForm" class="w3-modal">
+      <div class="w3-modal-content">
+
+        <header class="w3-container w3-teal">
+          <span onclick="document.getElementById('newClientModalForm').style.display='none'"
+          class="w3-button w3-display-topright">&times;</span>
+          <h2>New Client</h2>
+        </header>
+
+        <div class="w3-container" style="margin-top: 16px;">
+            <div class="new-client-container">
+                <div class="name-holder">
+                    <div class="title-holder">
+                        <label for="title">Title</label>
+                        <select class="title-select" name="title" id=title-input>
+                            <option value="Mr">Mr</option>
+                            <option value="Miss">Miss</option>
+                            <option value="Mrs">Mrs</option>
+                            <option value="Ms">Ms</option>
+                        </select>
+                    </div>
+                    <div class="fName-holder">
+                        <label for="fName">First Name</label>
+                        <input type="text" id="fName-input" name="fName" placeholder="First Name...">
+                    </div>
+                    <div class="sName-holder">
+                        <label for="sName">Surname</label>
+                        <input type="text" id="sName-input" name="sName" placeholder="Surname...">
+                    </div>
+                </div>
+                <div class="contact-holder">
+                    <div class="email-holder">
+                        <label for="email">E-Mail</label>
+                        <input type="text" id="email-input" name="email" placeholder="johndoe@email.com...">
+                    </div>
+                    <div class="tel-holder">
+                        <label for="tel">Telephone No.</label>
+                        <input type="text" id="tel-input" name="tel" placeholder="012345678...">
+                    </div>
+                    <div class="id-holder">
+                        <label for="id">ID</label>
+                         <a href="javascript:refreshClientFormID()" onlick="refreshClientFormID()">Generate New ID...</a>
+                        <input type="text" id="id-input" name="id">
+                    </div>
+                </div>
+                <div class="address-holder">
+                    <div class="address1-holder">
+                        <label for="address1">Address Line 1</label>
+                        <input type="text" id="address-input" name="tel" placeholder="10 Fake Street...">
+                    </div>
+                    <div class="city-holder">
+                        <label for="city">City</label>
+                        <input type="text" id="city-input" name="city" placeholder="London...">
+                    </div>
+                    <div class="postcode-holder">
+                        <label for="postcode">Postcode</label>
+                        <input type="text" id="postcode-input" name="postcode" placeholder="A12 3BC...">
+                    </div>
+                </div>
+                <input type="submit" name="buttonAddClient" onclick ="submitNewClient()"></input>
+            </div>
+        </div>
+
+      </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-app.js"></script>
         <!-- TODO: Add SDKs for Firebase products that you want to use
              https://firebase.google.com/docs/web/setup#available-libraries -->
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
-
-
-        <script>
-          // Your web app's Firebase configuration
-          var firebaseConfig = {
-            apiKey: "AIzaSyD9MtjbxafidzvcShHLezrtbJKL943CRzI",
-            authDomain: "r013-database.firebaseapp.com",
-            databaseURL: "https://r013-database.firebaseio.com",
-            projectId: "r013-database",
-            storageBucket: "r013-database.appspot.com",
-            messagingSenderId: "67626288408",
-            appId: "1:67626288408:web:f41fe1e4cb1982db8a4a6d"
-          };
-          // Initialize Firebase
-          firebase.initializeApp(firebaseConfig);
-        </script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.7.0/firebase-auth.js"></script>
+    <script>
+      // Your web app's Firebase configuration
+      var firebaseConfig = {
+        apiKey: "AIzaSyD9MtjbxafidzvcShHLezrtbJKL943CRzI",
+        authDomain: "r013-database.firebaseapp.com",
+        databaseURL: "https://r013-database.firebaseio.com",
+        projectId: "r013-database",
+        storageBucket: "r013-database.appspot.com",
+        messagingSenderId: "67626288408",
+        appId: "1:67626288408:web:f41fe1e4cb1982db8a4a6d"
+      };
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script>
     <script type="text/javascript" src="../js/ID Generator.js"></script>
     <script type="text/javascript" src="../js/Firebase Handler.js"></script>
     <script type="text/javascript" src="../js/Database Handler.js"></script>
     <script type="text/javascript" src="../js/main.js"></script>
-
-
   </body>
 </html>

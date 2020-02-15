@@ -1,4 +1,4 @@
-var CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890"
+var CHARSET = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890"
 
 function generateID(length = 6) {
 	let IDString = "";
