@@ -3,5 +3,5 @@ document.getElementById("defaultOpen").click();
 
 
 function refreshClientFormID() {
-    document.getElementById("id-input").defaultValue = generateID();
+    document.getElementById("id-input").value = generateID();
 }

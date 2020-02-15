@@ -58,30 +58,32 @@ function updateDBOrders(snapshot) {
 	}
 	// Iterate over every order in the Firebase Snapshot.
 	Object.keys(snapshot.clients).forEach((client, index) => {
-		Object.keys(snapshot.clients[client].orders).forEach((order, index) => {
-			console.log(client, order, snapshot.clients[client].orders[order].details);
+		if (snapshot.clients[client].orders) {
+			Object.keys(snapshot.clients[client].orders).forEach((order, index) => {
+				console.log(client, order, snapshot.clients[client].orders[order].details);
 
-			var orderRow = dbOrders.insertRow(-1);
-	    	orderRow.setAttribute("class", `order-row ${order}`);
+				var orderRow = dbOrders.insertRow(-1);
+				orderRow.setAttribute("class", `order-row ${order}`);
 
-	    	// Initialise all the cells for the order records.
-		    var cellID       			= orderRow.insertCell(0);
-			var cellClient      		= orderRow.insertCell(1);
-			var cellTheme       		= orderRow.insertCell(2);
-			var isFruit					= orderRow.insertCell(3);
-			var isSponge				= orderRow.insertCell(4);
-			var orderDate				= orderRow.insertCell(5);
-			var collectionDate			= orderRow.insertCell(6);
+				// Initialise all the cells for the order records.
+				var cellID       			= orderRow.insertCell(0);
+				var cellClient      		= orderRow.insertCell(1);
+				var cellTheme       		= orderRow.insertCell(2);
+				var isFruit					= orderRow.insertCell(3);
+				var isSponge				= orderRow.insertCell(4);
+				var orderDate				= orderRow.insertCell(5);
+				var collectionDate			= orderRow.insertCell(6);
 
-			// Set the innerHTML of all the cells.
-			cellID.innerHTML			= order;
-			cellClient.innerHTML		= snapshot.clients[client].details.fName + " " + snapshot.clients[client].details.sName;
-			cellTheme.innerHTML			= snapshot.clients[client].orders[order].details.cakeTheme;
-			isFruit.innerHTML			= snapshot.clients[client].orders[order].details.isFruit ? "Yes" : "No";
-			isSponge.innerHTML			= snapshot.clients[client].orders[order].details.isSponge ? snapshot.clients[client].orders[order].details.spongeFilling : "No";
-			orderDate.innerHTML			= snapshot.clients[client].orders[order].details.orderDate;
-			collectionDate.innerHTML	= snapshot.clients[client].orders[order].details.collectionDate;
-		});
+				// Set the innerHTML of all the cells.
+				cellID.innerHTML			= order;
+				cellClient.innerHTML		= snapshot.clients[client].details.fName + " " + snapshot.clients[client].details.sName;
+				cellTheme.innerHTML			= snapshot.clients[client].orders[order].details.cakeTheme;
+				isFruit.innerHTML			= snapshot.clients[client].orders[order].details.isFruit ? "Yes" : "No";
+				isSponge.innerHTML			= snapshot.clients[client].orders[order].details.isSponge ? snapshot.clients[client].orders[order].details.spongeFilling : "No";
+				orderDate.innerHTML			= snapshot.clients[client].orders[order].details.orderDate;
+				collectionDate.innerHTML	= snapshot.clients[client].orders[order].details.collectionDate;
+			});
+		}
 	});
 
 	var addOrderRow = dbOrders.insertRow(-1);
