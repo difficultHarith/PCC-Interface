@@ -97,7 +97,7 @@ td.addNewRowCell:hover {
   cursor: pointer;
 }
 
-input[type=text], select.client_title-select, select {
+input[type=text], input[type=date], select.client_title-select, select.order_client-select, select {
   width: 100%;
   padding: 12px 20px;
   margin: 8px 0;
@@ -137,6 +137,12 @@ input[type=submit]:hover {
 
 .client_address-holder {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8px;
+}
+
+.order_date-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 8px;
 }

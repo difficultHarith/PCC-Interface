@@ -28,7 +28,7 @@ function submitNewClient() {
     fName       = capitaliseString(document.getElementById("client_fName-input").value);
     sName       = capitaliseString(document.getElementById("client_sName-input").value);
     email       = document.getElementById("client_email-input").value;
-    tel         = document.getElementById("client_tel-input").value.split("").filter(d => !isNaN(d)).join("");
+    tel         = document.getElementById("client_tel-input").value.replace(/[^0-9]/g, '');
     address     = document.getElementById("client_address-input").value.split(" ").map(substr => capitaliseString(substr)).join(" ");
     city        = capitaliseString(document.getElementById("client_city-input").value);
     postcode    = document.getElementById("client_postcode-input").value.toUpperCase();
@@ -51,7 +51,9 @@ function submitNewClient() {
         city        = document.getElementById("client_city-input").value = "";
         postcode    = document.getElementById("client_postcode-input").value = "";
 
-        firebase.auth().createUserWithEmailAndPassword(newClientObj.email, newClientObj.fName.toLowerCase() + newClientObj.sName.toLowerCase()).catch(function(error) {
+        firebase.auth().createUserWithEmailAndPassword(
+            newClientObj.email, newClientObj.fName.toLowerCase() + newClientObj.sName.toLowerCase())
+            .catch(error => {
             // Handle Errors here.
             var errorCode = error.code;
             var errorMessage = error.message;
@@ -63,11 +65,11 @@ function submitNewClient() {
 function validateClient(client) {
     console.log(client)
 
-    if(/*!Object.values(client).every(prop => prop != "")*/client.tel == client.email ) {
+    if(!Object.values(client).every(prop => prop != "")) {
         alert("Fill in all properties");
         return false;
     }else if(Object.keys(firebaseCache.clients).includes(client.id)) {
-        alert(`ID ${client.id} was already used.`);
+        alert(`ID ${client.id} was already used. Please generate a new ID.`)
         return false;
     } else {
         return true;

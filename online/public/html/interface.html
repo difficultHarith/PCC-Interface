@@ -135,9 +135,42 @@
         <div class="w3-container" style="margin-top: 16px;">
             <div class="new-order-container">
                 <div class="order_client-holder">
-                    <label for="client-select">Postcode</label>
+                    <label for="client-select">Client</label>
                     <select class="order_client-select" name="client-select" id="order_client-input">
                     </select>
+                </div>
+                <div class="order_date-holder">
+                    <div class="order_orderDate-holder">
+                        <label for="orderDate">Order Date</label>
+                        <input type="date" name="orderDate" id="order_orderDate-input">
+                    </div>
+                    <div class="order_deliveryDate-holder">
+                        <label for="deliveryDate">Delivery Date</label>
+                        <input type="date" name="deliveryDate" id="order_deliveryDate-input">
+                    </div>
+                    <div class="order_collectionDate-holder">
+                        <label for="collectionDate">Collection Date</label>
+                        <input type="date" name="collectionDate" id="order_collectionDate-input">
+                    </div>
+                </div>
+
+                <div class="order_theme-holder">
+                    <div class="order_cakeTheme-holder">
+                        <label for="cakeTheme-select">Theme</label>
+                        <select class="order_cakeTheme-select" name="cakeTheme">
+                            <option value="Birthday">Birthday</option>
+                            <option value="Anniverary">Anniverary</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Retirement">Retirement</option>
+                            <option value="Graduation">Graduation</option>
+                            <option value="Easter">Easter</option>
+                            <option value="Christmas">Christmas</option>
+                        </select>
+                    </div>
+                    <div class="order_specialReq-holder">
+                        <label for="specialReq">Special Requirements</label>
+                        <input type="text" name="specialReq" id="order_specialReq-input">
+                    </div>
                 </div>
                 <input type="submit" name="buttonAddOrder" onclick ="submitNewOrder()" value="Add Client"></input>
             </div>
