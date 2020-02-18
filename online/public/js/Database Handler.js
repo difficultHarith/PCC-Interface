@@ -95,8 +95,8 @@ function updateDBOrders(snapshot) {
 	addOrderCell.style.textAlign = "center";
 
 	addOrderCell.addEventListener("click", e => {
-
-	alert("Clicked");
+	document.getElementById('newOrderModalForm').style.display='block';
+	refreshOrderClientOptions();
 	});
 
 }

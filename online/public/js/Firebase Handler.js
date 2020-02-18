@@ -8,6 +8,18 @@ rootRef.on("value", snapshot => {
     firebaseCache = snapshot.val();
 });
 
+function refreshOrderClientOptions () {
+
+    var orderClientSelect = document.getElementById("order_client-input");
+    orderClientSelect.length = 0;
+
+    Object.keys(firebaseCache.clients).forEach(client => {
+        orderClientSelect.options.add(new Option
+        (`${firebaseCache.clients[client].details.id} - ${firebaseCache.clients[client].details.fName} ${firebaseCache.clients[client].details.sName}`, `${firebaseCache.clients[client].details.id}`)); //Text, Value
+
+    })
+}
+
 function submitNewClient() {
     var id, title, fName, sName, email, tel, address, city, postcode;
 
@@ -51,12 +63,9 @@ function submitNewClient() {
 function validateClient(client) {
     console.log(client)
 
-    if(!Object.values(client).every(prop => prop != "")) {
+    if(/*!Object.values(client).every(prop => prop != "")*/client.tel == client.email ) {
         alert("Fill in all properties");
         return false;
-
-        // return window.confirm(`You've not filled the ${Object.values(client).flatMap((val, i) => val == "" ? [Object.keys(client)[i]] : []).join(", ").split("").splice(Object.values(client).flatMap((val, i) => val == "" ? [Object.keys(client)[i]] : []).lastIndexOf(","), 1, " and ").join("")} properties. Continue?`)
-
     }else if(Object.keys(firebaseCache.clients).includes(client.id)) {
         alert(`ID ${client.id} was already used.`);
         return false;

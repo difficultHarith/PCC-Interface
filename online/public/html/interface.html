@@ -126,64 +126,20 @@
 
     <div id="newOrderModalForm" class="w3-modal">
       <div class="w3-modal-content">
-
         <header class="w3-container w3-teal">
-          <span onclick="document.getElementById('newOrderModalForm').style.display='none'"
+          <span onclick="document.getElementById('newOrderModalForm').style.display='none';"
           class="w3-button w3-display-topright">&times;</span>
           <h2>New Order</h2>
         </header>
 
         <div class="w3-container" style="margin-top: 16px;">
             <div class="new-order-container">
-                <div class="name-holder">
-                    <div class="title-holder">
-                        <label for="title">Title</label>
-                        <select class="title-select" name="title" id=title-input>
-                            <option value="Mr">Mr</option>
-                            <option value="Miss">Miss</option>
-                            <option value="Mrs">Mrs</option>
-                            <option value="Ms">Ms</option>
-                        </select>
-                    </div>
-                    <div class="fName-holder">
-                        <label for="fName">First Name</label>
-                        <input type="text" id="fName-input" name="fName" placeholder="First Name...">
-                    </div>
-                    <div class="sName-holder">
-                        <label for="sName">Surname</label>
-                        <input type="text" id="sName-input" name="sName" placeholder="Surname...">
-                    </div>
+                <div class="order_client-holder">
+                    <label for="client-select">Postcode</label>
+                    <select class="order_client-select" name="client-select" id="order_client-input">
+                    </select>
                 </div>
-                <div class="contact-holder">
-                    <div class="email-holder">
-                        <label for="email">E-Mail</label>
-                        <input type="text" id="email-input" name="email" placeholder="johndoe@email.com...">
-                    </div>
-                    <div class="tel-holder">
-                        <label for="tel">Telephone No.</label>
-                        <input type="text" id="tel-input" name="tel" placeholder="012345678...">
-                    </div>
-                    <div class="id-holder">
-                        <label for="id">ID</label>
-                         <a href="javascript:refreshClientFormID()" onlick="refreshClientFormID()">Generate New ID...</a>
-                        <input type="text" id="id-input" name="id">
-                    </div>
-                </div>
-                <div class="address-holder">
-                    <div class="address1-holder">
-                        <label for="address1">Address Line 1</label>
-                        <input type="text" id="address-input" name="tel" placeholder="10 Fake Street...">
-                    </div>
-                    <div class="city-holder">
-                        <label for="city">City</label>
-                        <input type="text" id="city-input" name="city" placeholder="London...">
-                    </div>
-                    <div class="postcode-holder">
-                        <label for="postcode">Postcode</label>
-                        <input type="text" id="postcode-input" name="postcode" placeholder="A12 3BC...">
-                    </div>
-                </div>
-                <input type="submit" name="buttonAddClient" onclick ="submitNewClient()" value="Add Client"></input>
+                <input type="submit" name="buttonAddOrder" onclick ="submitNewOrder()" value="Add Client"></input>
             </div>
         </div>
 
