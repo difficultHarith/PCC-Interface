@@ -146,3 +146,15 @@ input[type=submit]:hover {
     grid-template-columns: 1fr 1fr 1fr;
     grid-gap: 8px;
 }
+
+.order_cost-holder {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 8px;
+}
+
+.order_meta-holder {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    grid-gap: 8px;
+}

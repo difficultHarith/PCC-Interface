@@ -62,6 +62,28 @@ function submitNewClient() {
     }
 }
 
+function submitNewOrder() {
+    var id, client, orderDate, deliveryDate, collectionDateisFruit, isSponge, cakeTheme, specialReq, cakeCost, deliveryCharge, postcode;
+
+    id          = document.getElementById("order_id-input").value;
+    client      = document.getElementById("order_client-input").value;
+    isFruit     = document.getElementById("order_isFruit-input").value;
+    isSponge    = document.getElementById("order_isSpongeFillingCheckbox").checked;
+    spongeFilling = isSponge.checked ? document.getElementById("order_spongeFilling") : "N/A"
+    cakeTheme   = document.getElementById("order_cakeTheme-input").value;
+    specialReq  = document.getElementById("order_specialReq-input").value;
+    cakeCost
+    deliveryCharge
+
+
+    var newOrderObj = {
+        id,title,fName,sName,email,tel,address,city,postcode
+    }
+
+    console.log(newOrderObj);
+
+}
+
 function validateClient(client) {
     console.log(client)
 
@@ -76,6 +98,15 @@ function validateClient(client) {
     }
 }
 
+
+
 function capitaliseString(value) {
 	return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
 }
+
+function formatSelectDate (date) {
+    sDate = date.split("");
+    return `${sDate.slice(8, 10).join("")}/${sDate.slice(5, 7).join("")}/${sDate.slice(0, 4).join("")}`
+}
+
+console.log(formatSelectDate("2019-04-21"))

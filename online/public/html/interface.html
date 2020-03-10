@@ -9,7 +9,7 @@
   <body>
     <div class="w3-bar w3-black">
       <a href="#" class="w3-bar-item w3-button">Database</a>
-      <a href="#" class="w3-bar-item w3-button">How I made this</a>
+      <a href="How I Made It.html" class="w3-bar-item w3-button">How I made this</a>
       <a href="#" class="w3-bar-item w3-button">Analytics</a>
       <a href="#" class="w3-bar-item w3-button">Contact Me</a>
     </div>
@@ -134,10 +134,12 @@
 
         <div class="w3-container" style="margin-top: 16px;">
             <div class="new-order-container">
-                <div class="order_client-holder">
-                    <label for="client-select">Client</label>
-                    <select class="order_client-select" name="client-select" id="order_client-input">
-                    </select>
+                <div class="order_details-holder">
+                    <div class="order_client-holder">
+                        <label for="client-select">Client</label>
+                        <select class="order_client-select" name="client-select" id="order_client-input">
+                        </select>
+                    </div>
                 </div>
                 <div class="order_date-holder">
                     <div class="order_orderDate-holder">
@@ -157,7 +159,7 @@
                 <div class="order_theme-holder">
                     <div class="order_cakeTheme-holder">
                         <label for="cakeTheme-select">Theme</label>
-                        <select class="order_cakeTheme-select" name="cakeTheme">
+                        <select class="order_cakeTheme-select" name="cakeTheme" id="order_cakeTheme-input">
                             <option value="Birthday">Birthday</option>
                             <option value="Anniverary">Anniverary</option>
                             <option value="Wedding">Wedding</option>
@@ -172,17 +174,39 @@
                         <input type="text" name="specialReq" id="order_specialReq-input">
                     </div>
                 </div>
+                <div class="order_meta-holder">
+                    <div>
+                        <label for="isFruit">Fruit?</label>
+                        <input type="checkbox" name="isFruit" id="order_isFruit-input" class="w3-check">
+
+                        <label for="isSponge-select">Sponge?</label>
+                        <input type="checkbox" name="isSponge" id="order_isSpongeFillingCheckbox" class="w3-check">
+                    </div>
+                    <div>
+                        <select class="order_isSpongeFilling-select" name="isSpongeFilling" id="order_isSpongeFilling-input" disabled>
+                            <option value="Strawberry Jam & Butter Icing">Strawberry Jam & Butter Icing</option>
+                            <option value="Raspberry Jam & Butter Icing">Raspberry Jam & Butter Icing</option>
+                            <option value="Apricot Jam & Butter Icing">Apricot Jam & Butter Icing</option>
+                        </select>
+                    </div>
+
+                </div>
                 <div class="order_cost-holder">
                     <div class="order_cakeCost-holder">
-                        <label for="cakeTheme-select">Theme</label>
+                        <label for="cakeCost">Cost</label>
                         <input type="text" name="cakeCost" id="order_cakeCost-input">
                     </div>
-                    <div class="order_specialReq-holder">
-                        <label for="specialReq">Special Requirements</label>
+                    <div class="order_deliveryCharge-holder">
+                        <label for="deliveryCharge">Delivery Charge</label>
                         <input type="text" name="specialReq" id="order_specialReq-input">
                     </div>
+                    <div class="order_id-holder">
+                        <label for="id">ID</label>
+                         <a href="javascript:refreshOrderFormID()" onlick="refreshOrderFormID()">Generate New ID...</a>
+                        <input type="text" id="order_id-input" name="id">
+                    </div>
                 </div>
-                <input type="submit" name="buttonAddOrder" onclick ="submitNewOrder()" value="Add Client"></input>
+                <input type="submit" name="buttonAddOrder" onclick ="submitNewOrder()" value="Add Order"></input>
             </div>
         </div>
 

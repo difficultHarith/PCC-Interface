@@ -97,6 +97,7 @@ function updateDBOrders(snapshot) {
 	addOrderCell.addEventListener("click", e => {
 	document.getElementById('newOrderModalForm').style.display='block';
 	refreshOrderClientOptions();
+	refreshOrderFormID();
 	});
 
 }
