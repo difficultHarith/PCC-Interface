@@ -68,17 +68,18 @@ function submitNewOrder() {
     id          = document.getElementById("order_id-input").value;
     client      = document.getElementById("order_client-input").value;
     isFruit     = document.getElementById("order_isFruit-input").value;
-    isSponge    = document.getElementById("order_isSpongeFillingCheckbox").checked;
+    isSponge    = document.getElementById("order_isSpongeFillingCheckbox").checked
     spongeFilling = isSponge.checked ? document.getElementById("order_spongeFilling") : "N/A"
     cakeTheme   = document.getElementById("order_cakeTheme-input").value;
     specialReq  = document.getElementById("order_specialReq-input").value;
-    cakeCost
-    deliveryCharge
+    cakeCost = document.getElementById("order_cakeCost-input").value;
+    deliveryCharge = document.getElementById("order_deliveryCharge-input").value;
 
 
     var newOrderObj = {
-        id,title,fName,sName,email,tel,address,city,postcode
+        id,client,isFruit,isSponge,spongeFilling,cakeTheme,specialReq,cakeCost,deliveryCharge
     }
+
 
     console.log(newOrderObj);
 
