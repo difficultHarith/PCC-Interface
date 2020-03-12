@@ -24,6 +24,7 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
 
     // User is signed in.
+		console.log(user);
 	window.location.href="html/interface.html"
   } else {
     // No user is signed in.

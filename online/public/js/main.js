@@ -11,4 +11,11 @@ function refreshOrderFormID() {
 }
 document.getElementById("order_isSpongeFillingCheckbox").addEventListener("click", e => {
     document.getElementById('order_isSpongeFilling-input').disabled = !document.getElementById("order_isSpongeFillingCheckbox").checked;
-})
+  });
+
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      alert("Hi")
+    }
+  });
