@@ -68,26 +68,54 @@ function submitNewOrder() {
 
     id          = document.getElementById("order_id-input").value;
     client      = document.getElementById("order_client-input").value;
-    orderDate = document.getElementById("order_orderDate-input").value;
-    collectionDate = document.getElementById("order_ collectionDate-input").value;
-    deliveryDate = document.getElementById("order_deliveryDate-input").value;
-    isFruit     = document.getElementById("order_isFruit-input").value;
+    orderDate = formatSelectDate(document.getElementById("order_orderDate-input").value);
+    collectionDate = formatSelectDate(document.getElementById("order_collectionDate-input").value);
+    deliveryDate = formatSelectDate(document.getElementById("order_deliveryDate-input").value);
+    isFruit     = document.getElementById("order_isFruit-input").checked;
     isSponge    = document.getElementById("order_isSpongeFillingCheckbox").checked;
     spongeFilling = document.getElementById("order_isSpongeFillingCheckbox").checked ?
-                document.getElementById("order_spongeFilling") : "N/A";
+                document.getElementById("order_isSpongeFilling-input").value : "N/A";
 
     cakeTheme   = document.getElementById("order_cakeTheme-input").value;
     specialReq  = document.getElementById("order_specialReq-input").value;
-    cakeCost = document.getElementById("order_specialReq-input").value;
-    deliveryCharge = document.getElementById("order_specialReq-input").value;
+    cakeCost = parseFloat(document.getElementById("order_cakeCost-input").value);
+    deliveryCharge = parseFloat(document.getElementById("order_deliveryCharge-input").value);
+    deposit = cakeCost * 0.25;
 
 
     var newOrderObj = {
-        id,client, orderDate, collectionDate, deliveryDate,isFruit,isSponge,spongeFilling,cakeTheme,specialReq,cakeCost,deliveryCharge
+        id,
+        client,
+        orderDate,
+        collectionDate,
+        deliveryDate,
+        isFruit,
+        isSponge,
+        spongeFilling,
+        cakeTheme,
+        specialReq,
+        cakeCost,
+        deliveryCharge,
+        deposit
     }
 
 
+
+
     console.log(newOrderObj);
+
+    database.ref(`clients/${client}/orders/${id}/details`).set(newOrderObj);
+    document.getElementById("newOrderModalForm").style.display = "none";
+
+    id          = document.getElementById("client_id-input").value = "";
+    title       = document.getElementById("client_title-input").value = "";
+    fName       = document.getElementById("client_fName-input").value = "";
+    sName       = document.getElementById("client_sName-input").value = "";
+    email       = document.getElementById("client_email-input").value = "";
+    tel         = document.getElementById("client_tel-input").value = "";
+    address     = document.getElementById("client_address-input").value = "";
+    city        = document.getElementById("client_city-input").value = "";
+    postcode    = document.getElementById("client_postcode-input").value = "";
 
 }
 
@@ -113,7 +141,7 @@ function capitaliseString(value) {
 
 function formatSelectDate (date) {
     sDate = date.split("");
-    return `${sDate.slice(8, 10).join("")}/${sDate.slice(5, 7).join("")}/${sDate.slice(0, 4).join("")}`
+    return date != "" ? `${sDate.slice(8, 10).join("")}/${sDate.slice(5, 7).join("")}/${sDate.slice(0, 4).join("")}` : "N/A"
 }
 
 console.log(formatSelectDate("2019-04-21"))
