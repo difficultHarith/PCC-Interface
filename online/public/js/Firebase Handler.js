@@ -65,19 +65,25 @@ function submitNewClient() {
 function submitNewOrder() {
     var id, client, orderDate, deliveryDate, collectionDateisFruit, isSponge, cakeTheme, specialReq, cakeCost, deliveryCharge, postcode;
 
+
     id          = document.getElementById("order_id-input").value;
     client      = document.getElementById("order_client-input").value;
+    orderDate = document.getElementById("order_orderDate-input").value;
+    collectionDate = document.getElementById("order_ collectionDate-input").value;
+    deliveryDate = document.getElementById("order_deliveryDate-input").value;
     isFruit     = document.getElementById("order_isFruit-input").value;
-    isSponge    = document.getElementById("order_isSpongeFillingCheckbox").checked
-    spongeFilling = isSponge.checked ? document.getElementById("order_spongeFilling") : "N/A"
+    isSponge    = document.getElementById("order_isSpongeFillingCheckbox").checked;
+    spongeFilling = document.getElementById("order_isSpongeFillingCheckbox").checked ?
+                document.getElementById("order_spongeFilling") : "N/A";
+
     cakeTheme   = document.getElementById("order_cakeTheme-input").value;
     specialReq  = document.getElementById("order_specialReq-input").value;
-    cakeCost = document.getElementById("order_cakeCost-input").value;
-    deliveryCharge = document.getElementById("order_deliveryCharge-input").value;
+    cakeCost = document.getElementById("order_specialReq-input").value;
+    deliveryCharge = document.getElementById("order_specialReq-input").value;
 
 
     var newOrderObj = {
-        id,client,isFruit,isSponge,spongeFilling,cakeTheme,specialReq,cakeCost,deliveryCharge
+        id,client, orderDate, collectionDate, deliveryDate,isFruit,isSponge,spongeFilling,cakeTheme,specialReq,cakeCost,deliveryCharge
     }
 
 
