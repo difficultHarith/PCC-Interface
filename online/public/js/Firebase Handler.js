@@ -41,15 +41,15 @@ function submitNewClient() {
         database.ref(`clients/${id}/details`).set(newClientObj);
         document.getElementById("newClientModalForm").style.display = "none";
 
-        id          = document.getElementById("client_id-input").value = "";
-        title       = document.getElementById("client_title-input").value = "";
-        fName       = document.getElementById("client_fName-input").value = "";
-        sName       = document.getElementById("client_sName-input").value = "";
-        email       = document.getElementById("client_email-input").value = "";
-        tel         = document.getElementById("client_tel-input").value = "";
-        address     = document.getElementById("client_address-input").value = "";
-        city        = document.getElementById("client_city-input").value = "";
-        postcode    = document.getElementById("client_postcode-input").value = "";
+        document.getElementById("client_id-input").value = "";
+        document.getElementById("client_title-input").value = "";
+        document.getElementById("client_fName-input").value = "";
+        document.getElementById("client_sName-input").value = "";
+        document.getElementById("client_email-input").value = "";
+        document.getElementById("client_tel-input").value = "";
+        document.getElementById("client_address-input").value = "";
+        document.getElementById("client_city-input").value = "";
+        document.getElementById("client_postcode-input").value = "";
 
         firebase.auth().createUserWithEmailAndPassword(
             newClientObj.email, newClientObj.fName.toLowerCase() + newClientObj.sName.toLowerCase())
@@ -107,16 +107,17 @@ function submitNewOrder() {
     database.ref(`clients/${client}/orders/${id}/details`).set(newOrderObj);
     document.getElementById("newOrderModalForm").style.display = "none";
 
-    id          = document.getElementById("client_id-input").value = "";
-    title       = document.getElementById("client_title-input").value = "";
-    fName       = document.getElementById("client_fName-input").value = "";
-    sName       = document.getElementById("client_sName-input").value = "";
-    email       = document.getElementById("client_email-input").value = "";
-    tel         = document.getElementById("client_tel-input").value = "";
-    address     = document.getElementById("client_address-input").value = "";
-    city        = document.getElementById("client_city-input").value = "";
-    postcode    = document.getElementById("client_postcode-input").value = "";
-
+    document.getElementById("order_id-input").value = "";
+    document.getElementById("order_client-input").value = "";
+    document.getElementById("order_orderDate-input").value = "";
+    document.getElementById("order_collectionDate-input").value = "";
+    document.getElementById("order_deliveryDate-input").value = "";
+    document.getElementById("order_isFruit-input").value = "";
+    document.getElementById("order_isSponge-input").value = "";
+    document.getElementById("order_spongeFilling-input").value = "";
+    document.getElementById("order_specialReq-input").value = "";
+    document.getElementById("order_cakeCost-input").value = "";
+    document.getElementById("order_deliveryCharge-input").value = "";
 }
 
 function validateClient(client) {

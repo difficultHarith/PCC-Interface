@@ -1,3 +1,13 @@
+adminRef = firebase.database().ref("admins");
+var adminKeys;
+
+adminRef.on("value", snapshot => {
+	adminKeys = Object.keys(snapshot.val());
+	console.log(adminKeys);
+});
+
+console.log(firebase.auth())
+
 document.getElementById("button-login").addEventListener("click", e => {
 	alert("Clicked")
 
@@ -20,13 +30,15 @@ document.getElementById("button-login").addEventListener("click", e => {
 });
 
 firebase.auth().onAuthStateChanged(function(user) {
+	console.log(`User obj:`);
+	console.log(user)
+	console.log(firebase.auth())
 
-  if (user) {
-
-    // User is signed in.
-		console.log(user);
-	window.location.href="html/interface.html"
-  } else {
-    // No user is signed in.
+  if (firebase.auth().cuurentUser != null) {
+		if(adminKeys.includes(firebase.auth().currentUser.uid)){
+			window.location.href="html/interface.html"
+		} else if(user){
+			window.location.href = "html/interface-client.html"
+		}
   }
 });
