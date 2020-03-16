@@ -1,5 +1,5 @@
 adminRef = firebase.database().ref("admins");
-var adminKeys;
+var adminKeys = [];
 
 adminRef.on("value", snapshot => {
 	adminKeys = Object.keys(snapshot.val());
@@ -34,8 +34,8 @@ firebase.auth().onAuthStateChanged(function(user) {
 	console.log(user)
 	console.log(firebase.auth())
 
-  if (firebase.auth().cuurentUser != null) {
-		if(adminKeys.includes(firebase.auth().currentUser.uid)){
+  if (firebase.auth().currentUser != null) {
+		if(adminKeys != [] && adminKeys.includes(firebase.auth().currentUser.uid)){
 			window.location.href="html/interface.html"
 		} else if(user){
 			window.location.href = "html/interface-client.html"
