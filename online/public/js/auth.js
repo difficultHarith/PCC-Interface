@@ -3,19 +3,15 @@ var adminKeys = [];
 
 adminRef.on("value", snapshot => {
 	adminKeys = Object.keys(snapshot.val());
-	console.log(adminKeys);
 });
 
-console.log(firebase.auth())
 
 document.getElementById("button-login").addEventListener("click", e => {
-	alert("Clicked")
 
 	var email = document.getElementById("inputEmail").value;
 	var password = document.getElementById("inputPassword").value;
 
 	if(email != "" && password != ""){
-		alert(`Password: ${password}\nE-Mail: ${email}`);
 		firebase.auth().signInWithEmailAndPassword(email, password).catch(function(error) {
 		  // Handle Errors here.
 		  var errorCode = error.code;

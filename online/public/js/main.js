@@ -16,6 +16,8 @@ document.getElementById("order_isSpongeFillingCheckbox").addEventListener("click
 
   firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
-      alert("Hi")
+
+    } else {
+      window.location.href = "../index.html";
     }
   });

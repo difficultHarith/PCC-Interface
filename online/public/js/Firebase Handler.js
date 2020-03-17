@@ -146,3 +146,17 @@ function formatSelectDate (date) {
 }
 
 console.log(formatSelectDate("2019-04-21"))
+
+
+function signOutUser(){
+  var r = confirm('Are you sure you want to sign out?')
+  if(r){
+    firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+    }).catch(function(error) {
+    // An error happened.
+    });
+} else {
+  
+}
+}
